@@ -68,7 +68,9 @@ To create a Helmet detection system which will detect Human head and then check 
 1] Study basics of machine learning and image recognition.
 
 2]Start with implementation
+
 • Front-end development
+
 • Back-end development
 
 3] Testing, analysing and improvising the model. An application using python and Roboflow and its machine learning libraries will be using machine learning to identify whether a person is wearing a Helmet or not.
