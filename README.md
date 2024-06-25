@@ -77,15 +77,143 @@ To create a Helmet detection system which will detect Human head and then check 
 
 4] use datasets to interpret the object and suggest whether the person on the camera’s viewfinder is wearing a helmet or not.
 
+## Methodology
+The Helmet detection system is a program that focuses on implementing real time Helmet detection. It is a prototype of a new product that comprises of the main module: Helmet detection and then showing on viewfinder whether the person is wearing a helmet or not. Helmet Detection Module
+
+This Module is divided into two parts:
+
+1] Head detection
+  • Ability to detect the location of a person’s head in any input image or frame. The output is the bounding box coordinates on the detected head of a person.
+  • For this task, initially the Dataset library Kaggle was considered. But integrating it was a complex task so then we just downloaded the images from gettyimages.ae and google images and made our own dataset.
+  • This Datasets identifies person’s head in a Bitmap graphic object and returns the bounding box image with annotation of Helmet or no Helmet present in each image.
+
+2] Helmet Detection
+  • Recognition of the head and whether Helmet is worn or not.
+  • Hence YOLOv5 which is a model library from roboflow for image classification and vision was used.
+  • There are other models as well but YOLOv5 is smaller and generally easier to use in production. Given it is natively implemented in PyTorch (rather than Darknet), modifying the architecture and exporting and deployment to many environments is straightforward.
+  • YOLOv5 was used to train and test our model for whether the helmet was worn or not. We trained it for 149 epochs and achieved an accuracy of approximately 92%. 
+
+## Installation
+Initial Configuration
+
+sudo apt-get remove --purge libreoffice*
+sudo apt-get remove --purge thunderbird*
+
+Create Swap
+udo fallocate -l 10.0G /swapfile1
+sudo chmod 600 /swapfile1
+sudo mkswap /swapfile1
+sudo vim /etc/fstab
+# make entry in fstab file
+/swapfile1	swap	swap	defaults	0 0
+
+Cuda env in bashrc
+vim ~/.bashrc
+
+# add this lines
+export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATh=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1
+
+Update & Upgrade
+sudo apt-get update
+sudo apt-get upgrade
+
+Install some required Packages
+sudo apt install curl
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo python3 get-pip.py
+sudo apt-get install libopenblas-base libopenmpi-dev
+
+sudo pip3 install pillow
+
+Install Torch
+curl -LO https://nvidia.box.com/shared/static/p57jwntv436lfrd78inwl7iml6p13fzh.whl
+mv p57jwntv436lfrd78inwl7iml6p13fzh.whl torch-1.8.0-cp36-cp36m-linux_aarch64.whl
+sudo pip3 install torch-1.8.0-cp36-cp36m-linux_aarch64.whl
+
+#Check Torch, output should be "True" 
+sudo python3 -c "import torch; print(torch.cuda.is_available())"
+
+Install Torchvision
+git clone --branch v0.9.1 https://github.com/pytorch/vision torchvision
+cd torchvision/
+sudo python3 setup.py install
+
+Clone Yolov5
+git clone https://github.com/ultralytics/yolov5.git
+cd yolov5/
+sudo pip3 install numpy==1.19.4
+
+#comment torch,PyYAML and torchvision in requirement.txt
+
+sudo pip3 install --ignore-installed PyYAML>=5.3.1
+sudo pip3 install -r requirements.txt
 
 
+Download weights and Test Yolov5 Installation on USB webcam
+sudo python3 detect.py
+sudo python3 detect.py --weights yolov5s.pt  --source 0
 
+## Helmet Dataset Training
+# We used Google Colab And Roboflow
+train your model on colab and download the weights and past them into yolov5 folder link of project
 
+colab file given in repo
+
+## Running Helmet Detection Model
+source '0' for webcam
+!python detect.py --weights best.pt --img 416 --conf 0.1 --source 0
 
 ## demo
 
-
-
-
 https://github.com/priyankapatil2345/superman_batman-detection/assets/147481327/c437bf5b-6972-4dc7-b360-e4236b0a1756
+
+## Advantages
+• Helmet detection system will be of great help in minimizing the injuries that occur due to an accident.
+
+• Helmet detection system shows whether the person in viewfinder of camera module is wearing a Helmet or not with good accuracy.
+
+• It can then convey it to authorities like traffic policeman or the data about the respective person and his vehicle can be stored, and then based on the info acquired can be notified on his mobile phone about the Helmet using law.
+
+• When completely automated no user input is required and therefore works with absolute efficiency and speed.
+
+• It can work around the clock and therefore becomes more cost efficient.
+
+## Application
+• Detects a person’s head and then checks whether Helmet is worn or not in each image frame or viewfinder using a camera module.
+
+• Can be used anywhere where traffic lights are installed as their people usually stop on red lights and Helmet detection becomes even more accurate.
+
+• Can be used as a reference for other ai models based on Helmet Detection.
+
+## Future Scope
+• As we know technology is marching towards automation, so this project is one of the step towards automation.
+
+• Thus, for more accurate results it needs to be trained for more images, and for a greater number of epochs.
+
+• Helmet detection will become a necessity in the future due to rise in population and hence our model will be of great help to tackle the situation in an efficient way.
+
+## Conclusion
+• In this project our model is trying to detect a person’s head and then showing it on viewfinder, live as to whether Helmet is worn or not as we have specified in Roboflow.
+
+• The model tries to solve the problem of severe head injuries that occur due to accidents and thus protects a person’s life.
+
+• The model is efficient and highly accurate and hence reduces the workforce required.
+
+## Reference
+1] Roboflow:- https://roboflow.com/
+
+2] Datasets or images used :- https://www.gettyimages.ae/search/2/image?phrase=helmet
+
+3] Google images
+
+## Articles :-
+1] https://www.bajajallianz.com/blog/motor-insurance-articles/what-is-the-importance-of-wearing-a-helmet-while-riding-your-two-wheeler.html#:~:text=Helmet%20is%20effective%20in%20reducing,are%20not%20wearing%20a%20helmet.
+
+2] https://www.findlaw.com/injury/car-accidents/helmet-laws-and-motorcycle-accident-cases.html
+
+
+
+
 
