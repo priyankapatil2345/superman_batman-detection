@@ -1,4 +1,4 @@
-# superman_batman-detection
+# Superman_Batman-Detection
 
 ## demo
 
