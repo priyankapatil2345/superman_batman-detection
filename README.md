@@ -1,6 +1,6 @@
 # Superman_Batman-Detection
 # Aim and Objectives
-Aim
+## Aim
 To create a Helmet detection system which will detect Human head and then check if Helmet is worn or not.
 Objectives
 • The main objective of the project is to create a program which can be either run on Jetson nano or any pc with YOLOv5 installed and start detecting using the camera module on the device.
