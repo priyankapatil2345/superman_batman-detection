@@ -2,18 +2,18 @@
 # Aim and Objectives
 ## Aim
 To create a Helmet detection system which will detect Human head and then check if Helmet is worn or not.
-Objectives
+## Objectives
 • The main objective of the project is to create a program which can be either run on Jetson nano or any pc with YOLOv5 installed and start detecting using the camera module on the device.
 • Using appropriate datasets for recognizing and interpreting data using machine learning.
 • To show on the optical viewfinder of the camera module whether a person is wearing a helmet or not.
-Abstract
+## Abstract
 • A person’s head is classified whether a helmet is worn or not and is detected by the live feed from the system’s camera.
 • We have completed this project on jetson nano which is a very small computational device.
 • A lot of research is being conducted in the field of Computer Vision and Machine Learning (ML), where machines are trained to identify various objects from one another. Machine Learning provides various techniques through which various objects can be detected.
 • One such technique is to use YOLOv5 with Roboflow model, which generates a small size trained model and makes ML integration easier.
 • A helmet is by far the most important and effective piece of protective equipment a person on a motorcycle can wear. Helmets save lives by reducing the extent of head injuries in the event of a traffic accidents.
 • In a personal injury action brought by an injured motorcyclist, the opposing motorist may raise an issue regarding the motorcyclist's own negligence.
-Introduction
+## Introduction
 • This project is based on a Helmet detection model with modifications. We are going to implement this project with Machine Learning and this project can be even run on jetson nano which we have done.
 • This project can also be used to gather information about who is wearing a helmet and who is not.
 • Helmets worn can further be classified into Safety helmets for Construction workers, helmets for Bicycle riders and helmets for Motorcycle riders based on the image annotation we give in roboflow. 
@@ -28,7 +28,7 @@ Literature Review
 • The significance of a helmet is all the more germane as the roads are heavily flooded with speeding vehicles and the chances of being in an accident are very high. Also, the patch works, and continuous development of the Indian roads increase the chances of accidents.
 • A motorcyclist's legal recovery might be barred, or reduced, as a result of his/her contributory negligence in causing the accident.
 • Mandatory helmet laws for motorcycle operators and their passengers have, for the most part, proven to be an effective strategy in both increasing helmet use and reducing head injuries and fatalities in motorcycle accidents nationwide. But, while having an unmistakably positive effect on the overall safety of motorcycle riding, helmet laws have been met by resistance in the motorcycling community.
-Jetson Nano Compatibility
+## Jetson Nano Compatibility
 • The power of modern AI is now available for makers, learners, and embedded developers everywhere.
 • NVIDIA® Jetson Nano™ Developer Kit is a small, powerful computer that lets you run multiple neural networks in parallel for applications like image classification, object detection, segmentation, and speech processing. All in an easy-to-use platform that runs in as little as 5 watts.
 • Hence due to ease of process as well as reduced cost of implementation we have used Jetson nano for model detection and training.
