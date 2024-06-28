@@ -8,10 +8,12 @@ The Superman-Batman Detection system is designed to identify and classify images
 
 • Using appropriate datasets for recognizing and interpreting data using machine learning.
 
-• To show on the optical viewfinder of the camera module whether a person is wearing a helmet or not.
+• To show on the optical viewfinder of the camera module whether the object is Superman 'S' symbol or Batman mask.
+
+• To Show users how to use the trained model to make predictions on new images, including specifying inference parameters and interpreting the output results.
 
 ## Abstract
-• A person’s head is classified whether a helmet is worn or not and is detected by the live feed from the system’s camera.
+• The Superman-Batman Detection System using YOLOv5 is an advanced object detection framework designed to accurately identify and classify images containing Superman and Batman.
 
 • We have completed this project on jetson nano which is a very small computational device.
 
@@ -19,9 +21,7 @@ The Superman-Batman Detection system is designed to identify and classify images
 
 • One such technique is to use YOLOv5 with Roboflow model, which generates a small size trained model and makes ML integration easier.
 
-• A helmet is by far the most important and effective piece of protective equipment a person on a motorcycle can wear. Helmets save lives by reducing the extent of head injuries in the event of a traffic accidents.
-
-• In a personal injury action brought by an injured motorcyclist, the opposing motorist may raise an issue regarding the motorcyclist's own negligence.
+• Users can effectively implement the Superman-Batman Detection System, enabling various applications such as automated content filtering, security surveillance, and entertainment.
 
 ## Introduction
 • This project is based on a Helmet detection model with modifications. We are going to implement this project with Machine Learning and this project can be even run on jetson nano which we have done.
