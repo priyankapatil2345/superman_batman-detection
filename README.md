@@ -24,32 +24,53 @@ The Superman-Batman Detection system is designed to identify and classify images
 • Users can effectively implement the Superman-Batman Detection System, enabling various applications such as automated content filtering, security surveillance, and entertainment.
 
 ## Introduction
-• This project is based on a Helmet detection model with modifications. We are going to implement this project with Machine Learning and this project can be even run on jetson nano which we have done.
+• This project is based on a Superman-Batman detection model with modifications. We are going to implement this project with Machine Learning and this project can be even run on jetson nano which we have done.
 
-• This project can also be used to gather information about who is wearing a helmet and who is not.
+• The Superman-Batman Detection System using YOLOv5 aims to accurately identify and classify images containing Superman and Batman. 
 
-• Helmets worn can further be classified into Safety helmets for Construction workers, helmets for Bicycle riders and helmets for Motorcycle riders based on the image annotation we give in roboflow. 
+• YOLOv5 (You Only Look Once, version 5) is a leading object detection algorithm known for its real-time detection capabilities and high accuracy. 
 
-• Helmet detection sometimes become difficult as safety helmets which don’t cover up chin and caps worn by people are of the same shape and size also sometimes the helmets worn by motorcyclists comes in variety of shapes and sizes with features like chin guard able to freely move above the head part thereby making helmet detection difficult. However, training in Roboflow has allowed us to crop images and change the contrast of certain images to match the time of day for better recognition by the model.
+• This documentation provides a comprehensive guide to help users set up, train, and use the system effectively. 
 
 • Neural networks and machine learning have been used for these tasks and have obtained good results.
 
 • Machine learning algorithms have proven to be very useful in pattern recognition and classification, and hence can be used for Helmet detection as well.
 
+• The system leverages YOLOv5 for detecting and classifying images. The model can process images quickly and deliver precise results, making it suitable for applications requiring real-time object detection, such as automated content filtering, security surveillance, and entertainment.
+
 ## Literature Review
-• Wearing a helmet helps to reduce the impact of an accident on your head. While riding your two-wheeler, it is very likely that if you are involved in an accident, then the resulting head injuries can be fatal, if you are not wearing a helmet. 
+• Object detection is a fundamental task in computer vision that involves identifying and localizing objects within an image. 
 
-• A full-faced helmet covers your entire face, providing you the complete protection in case you go through an accident. This type of helmet protects your eyes from dust and high beam lights when driving your two-wheeler.
+• It has wide-ranging applications, from surveillance and security to autonomous driving and medical imaging. 
 
-• It is observed that wearing a helmet improves your attention while riding your bike. You tend to be more cautious and control your speed when wearing a helmet while driving your two-wheeler.
+• The field has seen significant advancements with the advent of deep learning, particularly Convolutional Neural Networks (CNNs).
 
-• Wearing a helmet not only covers your head but also covers your ears. This layer of safety blocks the cool breeze and rainy water to enter your ears and thus helps you to stay healthy & prevent you from getting sick in the cold and rainy weather.
+Historical Context and Evolution of Object Detection
+-
+1) R-CNN (Region-based Convolutional Neural Networks) :
+    Introduced by Girshick et al. in 2014, R-CNN utilizes selective search to generate region proposals and applies a CNN to each proposal for classification and bounding box regression. Despite its accuracy, R-CNN is computationally expensive and slow due to multiple CNN evaluations per image.
 
-• The significance of a helmet is all the more germane as the roads are heavily flooded with speeding vehicles and the chances of being in an accident are very high. Also, the patch works, and continuous development of the Indian roads increase the chances of accidents.
+2) Fast R-CNN :
+    Proposed by Ross Girshick in 2015, Fast R-CNN improved upon R-CNN by sharing convolutional computations across proposals. It introduced ROI (Region of Interest) pooling to speed up the process. However, it still relied on selective search for generating region proposals.
 
-• A motorcyclist's legal recovery might be barred, or reduced, as a result of his/her contributory negligence in causing the accident.
+3) Faster R-CNN :
+    Introduced by Ren et al. in 2015, Faster R-CNN integrated Region Proposal Networks (RPN) with Fast R-CNN, eliminating the need for selective search. This integration significantly improved both speed and accuracy, establishing Faster R-CNN as a benchmark in object detection.
 
-• Mandatory helmet laws for motorcycle operators and their passengers have, for the most part, proven to be an effective strategy in both increasing helmet use and reducing head injuries and fatalities in motorcycle accidents nationwide. But, while having an unmistakably positive effect on the overall safety of motorcycle riding, helmet laws have been met by resistance in the motorcycling community.
+4) YOLO (You Only Look Once) :
+    Introduced by Redmon et al. in 2016, YOLO reframed object detection as a single regression problem, predicting bounding boxes and class probabilities directly from full images in one evaluation. YOLO's primary advantage is its real-time detection speed. However, its initial versions had limitations in detecting smaller objects and achieving high accuracy compared to R-CNN variants.
+
+5) YOLOv3 and YOLOv4 :
+    YOLOv3 and YOLOv4 brought significant improvements in architecture and performance. YOLOv3 introduced multi-scale predictions and better backbone networks, while YOLOv4 incorporated several enhancements like CSPDarknet53 backbone, PANet path-aggregation neck, and CIoU loss for better bounding box regression.
+
+YOLOv5: Advancements and Features
+-
+YOLOv5, developed by Ultralytics, represents the latest iteration in the YOLO series, offering several improvements over its predecessors:
+
+• Architecture: YOLOv5 uses CSP (Cross Stage Partial) networks, enhancing feature extraction and detection capabilities.
+• Training: Simplified training process with built-in support for data augmentation, mixed precision training, and automatic hyperparameter tuning.
+• Performance: Maintains a balance between speed and accuracy, making it suitable for real-time applications.
+
+YOLOv5's user-friendly implementation and state-of-the-art performance have made it a popular choice for various object detection tasks.
 
 ## Jetson Nano Compatibility
 • The power of modern AI is now available for makers, learners, and embedded developers everywhere.
