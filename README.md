@@ -1,7 +1,7 @@
-# Superman_Batman-Detection
-# Aim and Objectives
+# Superman_Batman_Detection_on_Yolov5_Using_Jetson_Nano_2GB
+
 ## Aim
-To create a Helmet detection system which will detect Human head and then check if Helmet is worn or not.
+The Superman-Batman Detection system is designed to identify and classify images of Superman and Batman, in which, it will detect Superman 'S' symbol and Batman mask.
 
 ## Objectives
 • The main objective of the project is to create a program which can be either run on Jetson nano or any pc with YOLOv5 installed and start detecting using the camera module on the device.
