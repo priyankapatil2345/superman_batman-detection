@@ -34,7 +34,7 @@ The Superman-Batman Detection system is designed to identify and classify images
 
 • Neural networks and machine learning have been used for these tasks and have obtained good results.
 
-• Machine learning algorithms have proven to be very useful in pattern recognition and classification, and hence can be used for Helmet detection as well.
+• Machine learning algorithms have proven to be very useful in pattern recognition and classification, and hence can be used for Superman-Batman detection as well.
 
 • The system leverages YOLOv5 for detecting and classifying images. The model can process images quickly and deliver precise results, making it suitable for applications requiring real-time object detection, such as automated content filtering, security surveillance, and entertainment.
 
@@ -86,35 +86,168 @@ YOLOv5's user-friendly implementation and state-of-the-art performance have made
 ## Jetson Nano 2gb
 
 ## Proposed System
-1] Study basics of machine learning and image recognition.
-
-2]Start with implementation
-
-• Front-end development
-
-• Back-end development
-
-3] Testing, analysing and improvising the model. An application using python and Roboflow and its machine learning libraries will be using machine learning to identify whether a person is wearing a Helmet or not.
-
-4] use datasets to interpret the object and suggest whether the person on the camera’s viewfinder is wearing a helmet or not.
+The proposed system leverages YOLOv5 to detect and classify images containing Superman and Batman. YOLOv5’s real-time detection capabilities and high accuracy make it suitable for this application. The system will be designed to handle various tasks, including data preparation, model training, inference, and deployment.
 
 ## Methodology
-The Helmet detection system is a program that focuses on implementing real time Helmet detection. It is a prototype of a new product that comprises of the main module: Helmet detection and then showing on viewfinder whether the person is wearing a helmet or not. Helmet Detection Module
+# Workflow
+1) Data Collection and Annotation :
+•  Collect a diverse dataset of Superman and Batman images.
+•  Annotate the images using LabelImg or a similar tool.
 
-This Module is divided into two parts:
+2) Data Preparation :
+•  Organize images and labels into the required directory structure.
+•  Create and configure the data.yaml file.
 
-1] Head detection
-  • Ability to detect the location of a person’s head in any input image or frame. The output is the bounding box coordinates on the detected head of a person.
-  • For this task, initially the Dataset library Kaggle was considered. But integrating it was a complex task so then we just downloaded the images from gettyimages.ae and google images and made our own dataset.
-  • This Datasets identifies person’s head in a Bitmap graphic object and returns the bounding box image with annotation of Helmet or no Helmet present in each image.
+3) Training the Model :
+•  Run the YOLOv5 training script with appropriate parameters.
+•  Monitor training progress and adjust parameters if necessary.
 
-2] Helmet Detection
-  • Recognition of the head and whether Helmet is worn or not.
-  • Hence YOLOv5 which is a model library from roboflow for image classification and vision was used.
-  • There are other models as well but YOLOv5 is smaller and generally easier to use in production. Given it is natively implemented in PyTorch (rather than Darknet), modifying the architecture and exporting and deployment to many environments is straightforward.
-  • YOLOv5 was used to train and test our model for whether the helmet was worn or not. We trained it for 149 epochs and achieved an accuracy of approximately 92%. 
+4) Running Inference :
+•  Use the trained model to detect Superman and Batman in new images.
+•  Adjust confidence thresholds and other parameters for optimal detection.
+
+5) Evaluating the Model :
+•  Run the validation script to evaluate model performance.
+•  Analyze metrics and make adjustments if needed.
+
+6) Deploying the Model :
+•  Export the trained model in desired formats for integration into various applications.
+
+# Potential Challenges and Solutions
+1) Data Quality and Quantity
+•  Challenge: Insufficient or low-quality images may affect model performance.
+•  Solution: Augment the dataset with synthetic images or use transfer learning to enhance model training.
+
+2) Model Overfitting
+•  Challenge: The model may overfit to the training data, reducing generalization.
+•  Solution: Use regularization techniques and data augmentation to improve generalization.
+
+3) Inference Speed
+•  Challenge: Ensuring real-time detection performance.
+•  Solution: Optimize model parameters and use hardware acceleration (e.g., GPU).
+
+The Superman-Batman Detection System using YOLOv5 aims to provide accurate, real-time detection of these characters for applications in automated content filtering, security surveillance, and entertainment. By leveraging YOLOv5’s capabilities and following a structured approach, the system ensures high performance and reliability.
 
 ## Installation
+# Prerequisites
+1. Python: Ensure Python 3.8 or higher is installed.
+2. CUDA: For GPU support, install CUDA and cuDNN.
+3. PIP: Ensure you have the latest version of pip.
+
+# Step-by-Step Installation
+1. Set Up Python Environment
+    It's recommended to use a virtual environment to manage dependencies:
+ 
+        python -m venv yolo-env
+        source yolo-env/bin/activate  # On Windows use `yolo-env\Scripts\activate`
+
+2. Install PyTorch and Torchvision
+
+Follow the instructions from the PyTorch website to install PyTorch and Torchvision. For example, if you have CUDA 11.3, use:
+
+        pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu113
+
+3. Clone the YOLOv5 Repository
+
+Clone the official YOLOv5 repository from GitHub:
+
+        git clone https://github.com/ultralytics/yolov5.git
+cd yolov5
+
+4. Install YOLOv5 Dependencies
+
+Install the required dependencies:
+
+        pip install -r requirements.txt
+
+5. Set Up the Dataset
+
+Create a directory structure for your dataset:
+
+        mkdir -p dataset/images/train
+mkdir -p dataset/images/val
+mkdir -p dataset/labels/train
+mkdir -p dataset/labels/val
+
+Place your annotated images and label files in the respective directories.
+
+6. Create the Configuration File
+
+In the YOLOv5 directory, create a data.yaml file:
+
+        train: ../dataset/images/train
+val: ../dataset/images/val
+nc: 2
+names: ['Superman', 'Batman']
+
+7. Train the Model
+
+Start training the model using the YOLOv5 training script:
+
+        python train.py --img 640 --batch 16 --epochs 50 --data data.yaml --cfg yolov5s.yaml --weights yolov5s.pt
+
+--img: Image size.
+--batch: Batch size.
+--epochs: Number of epochs.
+--data: Path to your data.yaml file.
+--cfg: Model configuration (e.g., yolov5s for the small model).
+--weights: Pre-trained weights to start from (e.g., yolov5s.pt).
+
+8) Inference and Detection
+
+After training, use the trained model for inference:
+
+        python detect.py --weights runs/train/exp/weights/best.pt --img 640 --conf 0.25 --source path/to/your/image.jpg
+
+--weights: Path to the trained model weights.
+--img: Image size.
+--conf: Confidence threshold for detections.
+--source: Source image or directory of images.
+
+9) Model Evaluation
+
+Evaluate the model’s performance using the validation dataset:
+
+        python val.py --weights runs/train/exp/weights/best.pt --data data.yaml --img 640
+
+10) Export the Model for Deployment
+
+Export the trained model in various formats for deployment:
+      
+        python export.py --weights runs/train/exp/weights/best.pt --img 640 --include onnx coreml tflite
+
+--include: Formats to export (e.g., onnx, coreml, tflite).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Initial Configuration
 
 sudo apt-get remove --purge libreoffice*
