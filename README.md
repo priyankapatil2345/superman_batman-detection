@@ -67,7 +67,9 @@ YOLOv5: Advancements and Features
 YOLOv5, developed by Ultralytics, represents the latest iteration in the YOLO series, offering several improvements over its predecessors:
 
 • Architecture: YOLOv5 uses CSP (Cross Stage Partial) networks, enhancing feature extraction and detection capabilities.
+
 • Training: Simplified training process with built-in support for data augmentation, mixed precision training, and automatic hyperparameter tuning.
+
 • Performance: Maintains a balance between speed and accuracy, making it suitable for real-time applications.
 
 YOLOv5's user-friendly implementation and state-of-the-art performance have made it a popular choice for various object detection tasks.
