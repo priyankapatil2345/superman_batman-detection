@@ -139,20 +139,20 @@ The Superman-Batman Detection System using YOLOv5 aims to provide accurate, real
     It's recommended to use a virtual environment to manage dependencies:
  
         python -m venv yolo-env
-        source yolo-env/bin/activate  # On Windows use `yolo-env\Scripts\activate`
+        source yolo-env/bin/activate  # On Windows use `yolo-                    env\Scripts\activate`
 
 2. Install PyTorch and Torchvision
 
 Follow the instructions from the PyTorch website to install PyTorch and Torchvision. For example, if you have CUDA 11.3, use:
 
-        pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu113
+        pip install torch torchvision torchaudio --index-url                     https://download.pytorch.org/whl/cu113
 
 3. Clone the YOLOv5 Repository
 
 Clone the official YOLOv5 repository from GitHub:
 
         git clone https://github.com/ultralytics/yolov5.git
-cd yolov5
+        cd yolov5
 
 4. Install YOLOv5 Dependencies
 
@@ -165,9 +165,9 @@ Install the required dependencies:
 Create a directory structure for your dataset:
 
         mkdir -p dataset/images/train
-mkdir -p dataset/images/val
-mkdir -p dataset/labels/train
-mkdir -p dataset/labels/val
+        mkdir -p dataset/images/val
+        mkdir -p dataset/labels/train
+        mkdir -p dataset/labels/val
 
 Place your annotated images and label files in the respective directories.
 
@@ -176,173 +176,81 @@ Place your annotated images and label files in the respective directories.
 In the YOLOv5 directory, create a data.yaml file:
 
         train: ../dataset/images/train
-val: ../dataset/images/val
-nc: 2
-names: ['Superman', 'Batman']
+        val: ../dataset/images/val
+        nc: 2
+        names: ['Superman', 'Batman']
 
 7. Train the Model
 
 Start training the model using the YOLOv5 training script:
 
-        python train.py --img 640 --batch 16 --epochs 50 --data data.yaml --cfg yolov5s.yaml --weights yolov5s.pt
+        python train.py --img 640 --batch 16 --epochs 50 --data                  data.yaml --cfg yolov5s.yaml --weights yolov5s.pt
 
---img: Image size.
---batch: Batch size.
---epochs: Number of epochs.
---data: Path to your data.yaml file.
---cfg: Model configuration (e.g., yolov5s for the small model).
---weights: Pre-trained weights to start from (e.g., yolov5s.pt).
+• --img: Image size.
+• --batch: Batch size.
+• --epochs: Number of epochs.
+• --data: Path to your data.yaml file.
+• --cfg: Model configuration (e.g., yolov5s for the small model).
+• --weights: Pre-trained weights to start from (e.g., yolov5s.pt).
 
 8) Inference and Detection
 
 After training, use the trained model for inference:
 
-        python detect.py --weights runs/train/exp/weights/best.pt --img 640 --conf 0.25 --source path/to/your/image.jpg
+        python detect.py --weights runs/train/exp/weights/best.pt --img 
+        640 --conf 0.25 --source path/to/your/image.jpg
 
---weights: Path to the trained model weights.
---img: Image size.
---conf: Confidence threshold for detections.
---source: Source image or directory of images.
+• --weights: Path to the trained model weights.
+• --img: Image size.
+• --conf: Confidence threshold for detections.
+• --source: Source image or directory of images.
 
 9) Model Evaluation
 
 Evaluate the model’s performance using the validation dataset:
 
-        python val.py --weights runs/train/exp/weights/best.pt --data data.yaml --img 640
+        python val.py --weights runs/train/exp/weights/best.pt --data            data.yaml --img 640
 
 10) Export the Model for Deployment
 
 Export the trained model in various formats for deployment:
       
-        python export.py --weights runs/train/exp/weights/best.pt --img 640 --include onnx coreml tflite
+        python export.py --weights runs/train/exp/weights/best.pt --img          640 --include onnx coreml tflite
 
---include: Formats to export (e.g., onnx, coreml, tflite).
-
-
+• --include: Formats to export (e.g., onnx, coreml, tflite).
 
 
+By following these installation steps, you can set up the Superman-Batman detection system using YOLOv5. This setup includes creating a Python virtual environment, installing necessary dependencies, setting up your dataset, training the model, running inference, evaluating the model, and exporting it for deployment.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Initial Configuration
-
-sudo apt-get remove --purge libreoffice*
-sudo apt-get remove --purge thunderbird*
-
-Create Swap
-udo fallocate -l 10.0G /swapfile1
-sudo chmod 600 /swapfile1
-sudo mkswap /swapfile1
-sudo vim /etc/fstab
-# make entry in fstab file
-/swapfile1	swap	swap	defaults	0 0
-
-Cuda env in bashrc
-vim ~/.bashrc
-
-# add this lines
-export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATh=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-export LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1
-
-Update & Upgrade
-sudo apt-get update
-sudo apt-get upgrade
-
-Install some required Packages
-sudo apt install curl
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-sudo python3 get-pip.py
-sudo apt-get install libopenblas-base libopenmpi-dev
-
-sudo pip3 install pillow
-
-Install Torch
-curl -LO https://nvidia.box.com/shared/static/p57jwntv436lfrd78inwl7iml6p13fzh.whl
-mv p57jwntv436lfrd78inwl7iml6p13fzh.whl torch-1.8.0-cp36-cp36m-linux_aarch64.whl
-sudo pip3 install torch-1.8.0-cp36-cp36m-linux_aarch64.whl
-
-#Check Torch, output should be "True" 
-sudo python3 -c "import torch; print(torch.cuda.is_available())"
-
-Install Torchvision
-git clone --branch v0.9.1 https://github.com/pytorch/vision torchvision
-cd torchvision/
-sudo python3 setup.py install
-
-Clone Yolov5
-git clone https://github.com/ultralytics/yolov5.git
-cd yolov5/
-sudo pip3 install numpy==1.19.4
-
-#comment torch,PyYAML and torchvision in requirement.txt
-
-sudo pip3 install --ignore-installed PyYAML>=5.3.1
-sudo pip3 install -r requirements.txt
-
-
-Download weights and Test Yolov5 Installation on USB webcam
-sudo python3 detect.py
-sudo python3 detect.py --weights yolov5s.pt  --source 0
-
-## Helmet Dataset Training
-# We used Google Colab And Roboflow
-train your model on colab and download the weights and past them into yolov5 folder link of project
-
-colab file given in repo
-
-## Running Helmet Detection Model
-source '0' for webcam
-!python detect.py --weights best.pt --img 416 --conf 0.1 --source 0
-
-## demo
+## Demo
 
 https://github.com/priyankapatil2345/superman_batman-detection/assets/147481327/c437bf5b-6972-4dc7-b360-e4236b0a1756
 
 ### Link:- https://youtu.be/OHsNWNB1-jY?si=_-1-xexuKYeuG6Gn
 
 ## Advantages
-• Helmet detection system will be of great help in minimizing the injuries that occur due to an accident.
+1) Real-Time Detection:
+• Speed: Optimized for fast, real-time processing.
+• Efficiency: Single pass detection ensures quick responses.
 
-• Helmet detection system shows whether the person in viewfinder of camera module is wearing a Helmet or not with good accuracy.
+2) High Accuracy:
+• Precision: Minimizes false positives and negatives.
+• Recall: Effective in complex environments and varying conditions.
 
-• It can then convey it to authorities like traffic policeman or the data about the respective person and his vehicle can be stored, and then based on the info acquired can be notified on his mobile phone about the Helmet using law.
+3) Scalability:
+• Dataset Flexibility: Handles large, diverse datasets.
+• Model Configurations: Adaptable to different computational resources and needs.
 
-• When completely automated no user input is required and therefore works with absolute efficiency and speed.
+4) Ease of Use:
+• Pre-trained Weights: Accelerates training with pre-trained models.
+• User-Friendly: Well-documented and easy-to-use training scripts.
 
-• It can work around the clock and therefore becomes more cost efficient.
+5) Adaptability:
+• Transfer Learning: Customizable for specific detection tasks.
+• Data Augmentation: Enhances model robustness through simulated scenarios.
 
 ## Application
-• Detects a person’s head and then checks whether Helmet is worn or not in each image frame or viewfinder using a camera module.
-
-• Can be used anywhere where traffic lights are installed as their people usually stop on red lights and Helmet detection becomes even more accurate.
-
-• Can be used as a reference for other ai models based on Helmet Detection.
-
+• 
 ## Future Scope
 • As we know technology is marching towards automation, so this project is one of the step towards automation.
 
