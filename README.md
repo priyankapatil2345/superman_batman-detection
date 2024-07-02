@@ -45,8 +45,8 @@ The Superman-Batman Detection system is designed to identify and classify images
 
 • The field has seen significant advancements with the advent of deep learning, particularly Convolutional Neural Networks (CNNs).
 
-Historical Context and Evolution of Object Detection
--
+### Historical Context and Evolution of Object Detection
+
 1) R-CNN (Region-based Convolutional Neural Networks) :
     Introduced by Girshick et al. in 2014, R-CNN utilizes selective search to generate region proposals and applies a CNN to each proposal for classification and bounding box regression. Despite its accuracy, R-CNN is computationally expensive and slow due to multiple CNN evaluations per image.
 
